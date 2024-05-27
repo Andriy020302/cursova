@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Configuration Recommendations</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/styles.css') }}" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+    <h1 class="mt-5">Configuration Recommendations</h1>
+    {% if error %}
+        <div class="alert alert-danger">{{ error }}</div>
+    {% else %}
+        <table class="table table-bordered mt-3">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Price</th>
+                    <th>CPU Frequency (GHz)</th>
+                    <th>CPU Cores</th>
+                    <th>CPU Threads</th>
+                    <th>GPU Memory (GB)</th>
+                    <th>GPU Core Speed (MHz)</th>
+                    <th>Predicted Performance</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for config in configurations %}
+                    <tr>
+                        <td>${{ config.Recommended_Customer_Price }}</td>
+                        <td>{{ config.Processor_Base_Frequency }}</td>
+                        <td>{{ config.nb_of_Cores }}</td>
+                        <td>{{ config.nb_of_Threads }}</td>
+                        <td>{{ config.Memory }}</td>
+                        <td>{{ config.Core_Speed }}</td>
+                        <td>{{ config.Predicted_Performance }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+    <a href="{{ url_for('index') }}" class="btn btn-primary mt-3">Go Back</a>
+</div>
+</body>
+</html>

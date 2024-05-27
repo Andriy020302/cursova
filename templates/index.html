@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Computer Configuration Recommender</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/styles.css') }}" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+    <h1 class="mt-5">Computer Configuration Recommender</h1>
+    <form action="{{ url_for('result') }}" method="post">
+        <div class="form-group">
+            <label for="max_price">Maximum Price:</label>
+            <input type="number" class="form-control" id="max_price" name="max_price" step="0.01" required>
+        </div>
+        <div class="form-group">
+            <label for="min_cpu_cores">Minimum CPU Cores:</label>
+            <input type="number" class="form-control" id="min_cpu_cores" name="min_cpu_cores" step="1" required>
+        </div>
+        <div class="form-group">
+            <label for="min_cpu_frequency">Minimum CPU Frequency (GHz):</label>
+            <input type="number" class="form-control" id="min_cpu_frequency" name="min_cpu_frequency" step="0.01" required>
+        </div>
+        <div class="form-group">
+            <label for="min_gpu_memory">Minimum GPU Memory (GB):</label>
+            <input type="number" class="form-control" id="min_gpu_memory" name="min_gpu_memory" step="0.01" required>
+        </div>
+        <div class="form-group">
+            <label for="min_gpu_core_speed">Minimum GPU Core Speed (MHz):</label>
+            <input type="number" class="form-control" id="min_gpu_core_speed" name="min_gpu_core_speed" step="1" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Get Recommendations</button>
+    </form>
+</div>
+</body>
+</html>

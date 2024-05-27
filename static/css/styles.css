@@ -1,0 +1,16 @@
+body {
+    padding-top: 20px;
+}
+
+table {
+    text-align: center;
+}
+
+thead {
+    background-color: #343a40;
+    color: #fff;
+}
+
+.table th, .table td {
+    vertical-align: middle;
+}
